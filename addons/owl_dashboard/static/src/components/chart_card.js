@@ -48,7 +48,6 @@ export class ChartCard extends Component {
             this.chart.data.labels = [...nextProps.labels];
             this.chart.data.datasets[0].data = [...nextProps.values];
 
-            // Redesenha
             this.chart.update();
         });
 
