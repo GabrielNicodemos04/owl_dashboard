@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="owl_dashboard.Dashboard">
+        <div class="o_owl_dashboard">
+            <h1>OWL Dashboard</h1>
+
+            <!-- Filters -->
+            <div class="filters mb-4">
+                <input type="date" t-model="state.filters.date_from"/>
+                <input type="date" t-model="state.filters.date_to"/>
+                <button t-on-click="loadKpis">Aplicar</button>
+            </div>
+
+            <!-- LOADING -->
+            <t t-if="state.loading">
+                <div class="kpi-container">
+                    <div class="kpi-skeleton" t-foreach="[1,2,3]" t-as="i" t-key="i">
+                        <div class="skeleton-value"/>
+                        <div class="skeleton-title"/>
+                    </div>
+                </div>
+            </t>
+
+            <!-- KPIs -->
+            <t t-if="!state.loading">
+                <div class="kpi-container">
+                    <KPICard 
+                        t-foreach="state.kpis" 
+                        t-as="kpi" 
+                        t-key="kpi.title" 
+                        t-props="{
+                            title: kpi.title,
+                            value: kpi.value
+                        }"
+                    />
+
+                    
+                </div>
+
+                <!-- Chart Card -->
+                <t t-if="!state.loading and state.chartData.values.length">
+                    <div class="kpi-container">
+                        <ChartCard
+                            title="'Resumo Geral'"
+                            labels="state.chartData.labels"
+                            values="state.chartData.values"
+                        />
+                    </div>
+                </t>
+            </t>
+        </div>
+    </t>
+</templates>

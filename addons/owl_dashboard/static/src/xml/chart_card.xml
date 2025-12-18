@@ -1,0 +1,7 @@
+<t t-name="owl_dashboard.ChartCard">
+    <div class="chart-card">
+        <h3 t-esc="props.title"/>
+        <canvas t-ref="canvas" width="400" height="120"></canvas>
+        <button class="btn-export" t-on-click="exportChart">Exportar PNG</button>
+    </div>
+</t>

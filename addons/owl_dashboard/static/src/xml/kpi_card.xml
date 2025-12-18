@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="owl_dashboard.KPICard">
+        <div class="kpi-card">
+            <div class="kpi-value">
+                <h3 t-esc="props.value"/>
+            </div>
+            <div class="kpi-title">
+                <span t-esc="props.title"/>
+            </div>
+        </div>
+    </t>
+</templates>
