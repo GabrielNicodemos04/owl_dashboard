@@ -20,9 +20,6 @@ export class ChartCard extends Component {
             if (!canvas) return;
 
             const ctx = canvas.getContext("2d");
-
-            console.log('values', this.props.values);
-
             this.chart = new Chart(ctx, {
                 type: "bar",
                 data: {

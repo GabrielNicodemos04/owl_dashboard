@@ -1,0 +1,7 @@
+*.pyc
+__pycache__/
+*.log
+*.db
+*.zip
+*.tmp
+*.swp
